@@ -8,5 +8,9 @@
   "private": false,
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "build": "",
+    "start": "node server.js"
   }
 }
