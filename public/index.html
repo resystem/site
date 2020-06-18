@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        padding: 20px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -moz-box-direction: normal;
+        -moz-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-justify-content: center;
+        justify-content: center;
+        background-color: #000000;
+      }
+
+      h1 {
+        display: none;
+      }
+
+      img.logo {
+        width: 100%;
+        max-width: 420px;
+        opacity: 1;
+        animation: fadein 0.2s;
+      }
+
+      p {
+        width: 100%;
+        text-align: center;
+        color: #FFFFFF;
+        position: absolute;
+        bottom: 20px;
+        font-family: 'Krona One', sans-serif;
+        font-size: 0.625rem;
+        font-weight: 200;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+</head>
+<body onload="updateColor(0);">
+  <h1>Re/System - A software house do NINJA Hackerspace</h1>
+  <img class="logo" src="/images/pink-logo.svg" alt="Logo da ReSystem" />
+  <p>contato@resystem.org</p>
+  <script>
+    var images = [
+      '/images/orange-logo.svg',
+      '/images/yellow-logo.svg',
+      '/images/green-logo.svg',
+      '/images/blue-logo.svg',
+      '/images/purple-logo.svg',
+      '/images/pink-logo.svg'
+    ];
+
+    images.forEach(function (src) {
+      var image = new Image();
+      image.src = src;
+    });
+
+    var img = document.querySelector('img.logo');
+
+    function updateColor(index) {
+      if (index >= images.length) {
+        return;
+      } else {
+        img.src = images[index];
+        setTimeout(function() {
+          updateColor(index + 1)
+        }, 200);
+      }
+    }
+  </script>
+</body>
+</html>
